@@ -1,7 +1,7 @@
 template(name="userAvatar")
   a.member(class="js-{{#if assignee}}assignee{{else}}member{{/if}}" title="{{userData.profile.fullname}} ({{userData.username}}) {{_ memberType}}")
     if userData.profile.avatarUrl
-      img.avatar.avatar-image(src="{{userData.profile.avatarUrl.replace('https://wekan-mce.iria.appli.impots','').replace('https://pigp.iia.dgfip/wekan-mce','')}}")
+      img.avatar.avatar-image(src="{{userData.profile.avatarUrl.replace('https://wekan-mce.iria.appli.impots','')}}")
     else
       +userAvatarInitials(userId=userData._id)
 
