@@ -200,7 +200,7 @@ BlazeComponent.extendComponent({
   },
 
   setAvatar(avatarUrl) {
-    Meteor.user().setAvatarUrl(avatarUrl);
+    Meteor.user().setAvatarUrl(avatarUrl.replace('https://wekan-mce.iria.appli.impots',''));
   },
 
   setError(error) {
