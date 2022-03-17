@@ -344,7 +344,7 @@
     "email-invalid": "Adresse e-mail incorrecte.",
     "email-invite": "Inviter par e-mail",
     "email-invite-subject": "__inviter__ vous a envoyé une invitation",
-    "email-invite-text": "Cher/Chère __user__,\n\n__inviter__ vous invite à rejoindre le tableau \"__board__\" pour collaborer.\n\nVeuillez suivre le lien ci-dessous :\n\n__url__\n\nMerci.",
+  	"email-invite-text": "Cher __user__,\n\n__inviter__ vous invite à rejoindre le tableau \"__board__\" pour collaborer.\n\nVeuillez vous reconnecter à l'application Wekan.\n\nMerci.",
     "email-resetPassword-subject": "Réinitialiser votre mot de passe sur __siteName__",
     "email-resetPassword-text": "Bonjour __user__,\n\nPour réinitialiser votre mot de passe, cliquez sur le lien ci-dessous.\n\n__url__\n\nMerci.",
     "email-sent": "Courriel envoyé",
