@@ -1,4 +1,5 @@
 import moment from 'moment';
+import 'moment/locale/fr';
 import Users from '../../models/users';
 import Boards from '../../models/boards';
 import Lists from '../../models/lists';

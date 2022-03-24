@@ -8,6 +8,7 @@ import Lists from '/models/lists';
 import CardComments from '/models/cardComments';
 import { ALLOWED_COLORS } from '/config/const';
 import moment from 'moment';
+import 'moment/locale/fr';
 import { UserAvatar } from '../users/userAvatar';
 
 moment.locale('fr');
