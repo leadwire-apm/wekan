@@ -319,31 +319,31 @@ CardCustomFieldDate.register('cardCustomFieldDate');
 
 (class extends CardReceivedDate {
   showDate() {
-    return this.date.get().format('l');
+    return this.date.get().locale('fr').format('l');
   }
 }.register('minicardReceivedDate'));
 
 (class extends CardStartDate {
   showDate() {
-    return this.date.get().format('l');
+    return this.date.get().locale('fr').format('l');
   }
 }.register('minicardStartDate'));
 
 (class extends CardDueDate {
   showDate() {
-    return this.date.get().format('l');
+    return this.date.get().locale('fr').format('l');
   }
 }.register('minicardDueDate'));
 
 (class extends CardEndDate {
   showDate() {
-    return this.date.get().format('l');
+    return this.date.get().locale('fr').format('l');
   }
 }.register('minicardEndDate'));
 
 (class extends CardCustomFieldDate {
   showDate() {
-    return this.date.get().format('l');
+    return this.date.get().locale('fr').format('l');
   }
 }.register('minicardCustomFieldDate'));
 
