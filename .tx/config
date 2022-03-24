@@ -43,7 +43,7 @@ lang_map = ar_EG:ar-EG, bg_BG:bg, de_AT:de-AT, de_CH:de-CH, en_DE:en-DE, en_IT:e
 
 [wekan.application]
 file_filter = i18n/<lang>.i18n.json
-source_lang = en
+source_lang = fr
 type = KEYVALUEJSON
 
 # We might have a dedicated second resource later to translate the “Welcome

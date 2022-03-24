@@ -825,7 +825,7 @@ Users.helpers({
 
   getLanguage() {
     const profile = this.profile || {};
-    return profile.language || 'en';
+    return profile.language || 'fr';
   },
 
   getStartDayOfWeek() {

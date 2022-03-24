@@ -50,7 +50,7 @@ runOnServer(function() {
       });
     }
     
-    let userLanguage = 'en';
+    let userLanguage = 'fr';
     if(user && user.profile){
       userLanguage = user.profile.language
     }
