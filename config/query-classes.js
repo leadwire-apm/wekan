@@ -48,6 +48,8 @@ import {
 import Boards from '../models/boards';
 import moment from 'moment';
 
+moment.locale('fr');
+
 export class QueryDebug {
   predicate = null;
 

@@ -10,6 +10,7 @@ import { ALLOWED_COLORS } from '/config/const';
 import moment from 'moment';
 import { UserAvatar } from '../users/userAvatar';
 
+moment.locale('fr');
 const subManager = new SubsManager();
 const { calculateIndexData } = Utils;
 
