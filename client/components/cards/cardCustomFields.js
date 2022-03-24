@@ -1,6 +1,8 @@
 import { DatePicker } from '/client/lib/datepicker';
 import Cards from '/models/cards';
 
+moment.locale('fr');
+
 Template.cardCustomFieldsPopup.helpers({
   hasCustomField() {
     const card = Utils.getCurrentCard();

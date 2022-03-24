@@ -1,5 +1,7 @@
 import { DatePicker } from '/client/lib/datepicker';
 
+moment.locale('fr');
+
 Template.dateBadge.helpers({
   canModifyCard() {
     return (
