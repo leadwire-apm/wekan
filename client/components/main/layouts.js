@@ -76,7 +76,7 @@ Template.userFormsLayout.onRendered(() => {
 
   const i18nTag = navigator.language;
   if (i18nTag) {
-    T9n.setLanguage(i18nTagToT9n(i18nTag));
+    T9n.setLanguage('fr');
   }
   EscapeActions.executeAll();
 });
@@ -102,11 +102,11 @@ Template.userFormsLayout.helpers({
   getLegalNoticeWithWritTraduction(){
     let spanLegalNoticeElt = $("#legalNoticeSpan");
     if(spanLegalNoticeElt != null && spanLegalNoticeElt != undefined){
-      spanLegalNoticeElt.html(TAPi18n.__('acceptance_of_our_legalNotice', {}, T9n.getLanguage() || 'fr'));
+      spanLegalNoticeElt.html(TAPi18n.__('acceptance_of_our_legalNotice', {}, 'fr'));
     }
     let atLinkLegalNoticeElt = $("#legalNoticeAtLink");
     if(atLinkLegalNoticeElt != null && atLinkLegalNoticeElt != undefined){
-      atLinkLegalNoticeElt.html(TAPi18n.__('legalNotice', {}, T9n.getLanguage() || 'fr'));
+      atLinkLegalNoticeElt.html(TAPi18n.__('legalNotice', {}, 'fr'));
     }
     return true;
   },
@@ -221,7 +221,7 @@ Template.userFormsLayout.helpers({
 
   isCurrentLanguage() {
     const t9nTag = i18nTagToT9n(this.tag);
-    const curLang = T9n.getLanguage() || 'fr';
+    const curLang = 'fr';
     return t9nTag === curLang;
   },
 });
@@ -229,7 +229,7 @@ Template.userFormsLayout.helpers({
 Template.userFormsLayout.events({
   'change .js-userform-set-language'(event) {
     const i18nTag = $(event.currentTarget).val();
-    T9n.setLanguage(i18nTagToT9n(i18nTag));
+    T9n.setLanguage('fr');
     event.preventDefault();
   },
   'click #at-btn'(event, templateInstance) {

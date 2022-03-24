@@ -111,7 +111,7 @@ CardCustomField.register('cardCustomField');
   }
 
   formattedValue() {
-    const locale = TAPi18n.getLanguage();
+    const locale = 'fr';
 
     return new Intl.NumberFormat(locale, {
       style: 'currency',

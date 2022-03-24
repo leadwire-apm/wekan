@@ -14,7 +14,7 @@ BlazeComponent.extendComponent({
     const customFieldTrueValue =
       customField && customField.trueValue ? customField.trueValue : '';
 
-    const locale = TAPi18n.getLanguage();
+    const locale = 'fr';
     return new Intl.NumberFormat(locale, {
       style: 'currency',
       currency: definition.settings.currencyCode,

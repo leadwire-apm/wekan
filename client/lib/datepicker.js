@@ -32,7 +32,7 @@ export class DatePicker extends BlazeComponent {
       .datepicker({
         todayHighlight: true,
         todayBtn: 'linked',
-        language: TAPi18n.getLanguage(),
+        language: 'fr',
         weekStart: this.startDayOfWeek(),
         calendarWeeks: true,
       })
