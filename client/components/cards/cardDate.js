@@ -271,8 +271,10 @@ class CardReceivedDate extends CardDate {
   }
 
   showTitle() {
+    setFr();
     return `${TAPi18n.__('card-received-on')} ${this.date
       .get()
+      .locale('fr')
       .format('LLLL')}`;
   }
 
@@ -308,7 +310,8 @@ class CardStartDate extends CardDate {
   }
 
   showTitle() {
-    return `${TAPi18n.__('card-start-on')} ${this.date.get().format('LLLL')}`;
+    setFr();
+    return `${TAPi18n.__('card-start-on')} ${this.date.get().locale('fr').format('LLLL')}`;
   }
 
   events() {
@@ -344,7 +347,8 @@ class CardDueDate extends CardDate {
   }
 
   showTitle() {
-    return `${TAPi18n.__('card-due-on')} ${this.date.get().format('LLLL')}`;
+    setFr();
+    return `${TAPi18n.__('card-due-on')} ${this.date.get().locale('fr').format('LLLL')}`;
   }
 
   events() {
@@ -375,7 +379,8 @@ class CardEndDate extends CardDate {
   }
 
   showTitle() {
-    return `${TAPi18n.__('card-end-on')} ${this.date.get().format('LLLL')}`;
+    setFr();
+    return `${TAPi18n.__('card-end-on')} ${this.date.get().locale('fr').format('LLLL')}`;
   }
 
   events() {
@@ -413,7 +418,8 @@ class CardCustomFieldDate extends CardDate {
   }
 
   showTitle() {
-    return `${this.date.get().format('LLLL')}`;
+    setFr();
+    return `${this.date.get().locale('fr').format('LLLL')}`;
   }
 
   classes() {
@@ -477,7 +483,8 @@ class VoteEndDate extends CardDate {
     return this.date.get().format('l LT');
   }
   showTitle() {
-    return `${TAPi18n.__('card-end-on')} ${this.date.get().format('LLLL')}`;
+    setFr();
+    return `${TAPi18n.__('card-end-on')} ${this.date.get().locale('fr').format('LLLL')}`;
   }
 
   events() {
@@ -504,7 +511,8 @@ class PokerEndDate extends CardDate {
     return this.date.get().format('l LT');
   }
   showTitle() {
-    return `${TAPi18n.__('card-end-on')} ${this.date.get().format('LLLL')}`;
+    setFr();
+    return `${TAPi18n.__('card-end-on')} ${this.date.get().locale('fr').format('LLLL')}`;
   }
 
   events() {
