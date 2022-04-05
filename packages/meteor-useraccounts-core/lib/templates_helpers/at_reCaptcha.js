@@ -1,5 +1,5 @@
 AT.prototype.atReCaptchaRendered = function() {
-    $.getScript('//www.google.com/recaptcha/api.js?hl=' + T9n.getLanguage());
+    $.getScript('//www.google.com/recaptcha/api.js?hl=' + 'fr');
 };
 
 AT.prototype.atReCaptchaHelpers = {
