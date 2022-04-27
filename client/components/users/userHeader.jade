@@ -67,16 +67,6 @@ template(name="memberMenuPopup")
         a.js-change-avatar
           i.fa.fa-picture-o
           | {{_ 'edit-avatar'}}
-      unless isSandstorm
-        if isNotOAuth2AuthenticationMethod
-          li
-            a.js-change-password
-              i.fa.fa-key
-              | {{_ 'changePasswordPopup-title'}}
-      li
-        a.js-change-language
-          i.fa.fa-flag
-          | {{_ 'changeLanguagePopup-title'}}
   unless isSandstorm
     hr
     ul.pop-over-list

@@ -199,7 +199,7 @@ export class Exporter {
     return result;
   }
 
-  buildCsv(userDelimiter = ',', userLanguage='en') {
+  buildCsv(userDelimiter = ',', userLanguage='fr') {
     const result = this.build();
     const columnHeaders = [];
     const cardRows = [];

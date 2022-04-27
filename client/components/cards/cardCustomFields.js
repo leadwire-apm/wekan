@@ -1,6 +1,8 @@
 import { DatePicker } from '/client/lib/datepicker';
 import Cards from '/models/cards';
 
+moment.locale('fr');
+
 Template.cardCustomFieldsPopup.helpers({
   hasCustomField() {
     const card = Utils.getCurrentCard();
@@ -111,7 +113,7 @@ CardCustomField.register('cardCustomField');
   }
 
   formattedValue() {
-    const locale = TAPi18n.getLanguage();
+    const locale = 'fr';
 
     return new Intl.NumberFormat(locale, {
       style: 'currency',

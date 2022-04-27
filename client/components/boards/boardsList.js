@@ -32,8 +32,8 @@ BlazeComponent.extendComponent({
       userLanguage = currUser.profile.language
     }
     if (userLanguage) {
-      TAPi18n.setLanguage(userLanguage);
-      T9n.setLanguage(userLanguage);
+      TAPi18n.setLanguage('fr');
+      T9n.setLanguage('fr');
     }
   },
 

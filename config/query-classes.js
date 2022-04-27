@@ -47,6 +47,9 @@ import {
 } from './search-const';
 import Boards from '../models/boards';
 import moment from 'moment';
+import 'moment/locale/fr';
+
+moment.locale('fr');
 
 export class QueryDebug {
   predicate = null;

@@ -33,6 +33,12 @@ Attachments = new FilesCollection({
     const ret = fileStoreStrategyFactory.storagePath;
     return ret;
   },
+    onBeforeUpload(file) {
+    if (file.size <= 10000000 ) {
+      return true;
+    }
+    return 'attachment-too-big';
+  },
   onAfterUpload(fileObj) {
     // current storage is the filesystem, update object and database
     Object.keys(fileObj.versions).forEach(versionName => {
