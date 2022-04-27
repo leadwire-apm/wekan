@@ -40,6 +40,12 @@ Attachments = new FilesCollection({
     }
     return path.normalize(`assets/app/uploads/${this.collectionName}`);
   },
+    onBeforeUpload(file) {
+    if (file.size <= 10000000 ) {
+      return true;
+    }
+    return 'attachment-too-big';
+  },
   onAfterUpload: function onAfterUpload(fileRef) {
     createOnAfterUpload(attachmentBucket).call(this, fileRef);
     // If the attachment doesn't have a source field
