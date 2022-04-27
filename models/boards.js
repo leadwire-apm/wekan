@@ -292,6 +292,20 @@ Boards.attachSchema(
         }
       },
     },
+    allowsCardCounterList: {
+      /**
+       * Show card counter per list
+       */
+      type: Boolean,
+      defaultValue: false,
+    },
+    allowsBoardMemberList: {
+      /**
+       * Show board member list
+       */
+      type: Boolean,
+      defaultValue: false,
+    },
     description: {
       /**
        * The description of the board
@@ -375,6 +389,13 @@ Boards.attachSchema(
        */
       type: Boolean,
       defaultValue: true,
+    },
+    allowsDescriptionTextOnMinicard: {
+      /**
+       * Does the board allows description text on minicard?
+       */
+      type: Boolean,
+      defaultValue: false,
     },
 
     allowsCardNumber: {
@@ -1415,12 +1436,24 @@ Boards.mutations({
     return { $set: { allowsDescriptionText } };
   },
 
+  setallowsDescriptionTextOnMinicard(allowsDescriptionTextOnMinicard) {
+    return { $set: { allowsDescriptionTextOnMinicard } };
+  },
+
   setAllowsActivities(allowsActivities) {
     return { $set: { allowsActivities } };
   },
 
   setAllowsReceivedDate(allowsReceivedDate) {
     return { $set: { allowsReceivedDate } };
+  },
+
+  setAllowsCardCounterList(allowsCardCounterList) {
+    return { $set: { allowsCardCounterList } };
+  },
+
+  setAllowsBoardMemberList(allowsBoardMemberList) {
+    return { $set: { allowsBoardMemberList } };
   },
 
   setAllowsStartDate(allowsStartDate) {

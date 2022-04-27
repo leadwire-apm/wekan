@@ -73,6 +73,40 @@ Migrations.add('board-background-color', () => {
   );
 });
 
+Migrations.add('add-cardcounterlist-allowed', () => {
+  Boards.update(
+    {
+      allowsCardCounterList: {
+        $exists: false,
+      },
+    },
+    {
+      $set: {
+        allowsCardCounterList: true,
+      },
+    },
+    noValidateMulti,
+  );
+});
+
+/*
+Migrations.add('add-boardmemberlist-allowed', () => {
+  Boards.update(
+    {
+      allowsBoardMemberList: {
+        $exists: false,
+      },
+    },
+    {
+      $set: {
+        allowsBoardMemberList: true,
+      },
+    },
+    noValidateMulti,
+  );
+});
+*/
+
 Migrations.add('lowercase-board-permission', () => {
   ['Public', 'Private'].forEach(permission => {
     Boards.update(
@@ -130,6 +164,7 @@ Migrations.add('use-css-class-for-boards-colors', () => {
     '#596557': 'natural',
     '#2A80B8': 'modern',
     '#2a2a2a': 'moderndark',
+    '#222222': 'exodark',
   };
   Boards.find().forEach(board => {
     const oldBoardColor = board.background.color;
@@ -1034,6 +1069,22 @@ Migrations.add('add-description-text-allowed', () => {
   );
 });
 
+Migrations.add('add-description-text-allowed-on-minicard', () => {
+  Boards.update(
+    {
+      allowsDescriptionTextOnMinicard: {
+        $exists: false,
+      },
+    },
+    {
+      $set: {
+        allowsDescriptionTextOnMinicard: true,
+      },
+    },
+    noValidateMulti,
+  );
+});
+
 Migrations.add('add-sort-field-to-boards', () => {
   Boards.find().forEach((board, index) => {
     if (!board.hasOwnProperty('sort')) {
@@ -1127,8 +1178,7 @@ Migrations.add('add-card-details-show-lists', () => {
 });
 
 Migrations.add('migrate-attachments-collectionFS-to-ostrioFiles', () => {
-  //const storagePath = Attachments.storagePath();
-  const storagePath = process.env.WRITABLE_PATH || `./wekan-uploads`;
+  const storagePath = Attachments.storagePath();
   if (!fs.existsSync(storagePath)) {
     console.log("create storagePath because it doesn't exist: " + storagePath);
     fs.mkdirSync(storagePath, { recursive: true });
@@ -1170,7 +1220,7 @@ Migrations.add('migrate-attachments-collectionFS-to-ostrioFiles', () => {
             cardId: fileObj.cardId,
             listId: fileObj.listId,
             swimlaneId: fileObj.swimlaneId,
-            source: 'import,'
+            source: 'import'
           },
           userId,
           size: fileSize,
@@ -1195,8 +1245,7 @@ Migrations.add('migrate-attachments-collectionFS-to-ostrioFiles', () => {
 });
 
 Migrations.add('migrate-avatars-collectionFS-to-ostrioFiles', () => {
-  //const storagePath = Avatars.storagePath();
-  const storagePath = process.env.WRITABLE_PATH || `./wekan-uploads`;
+  const storagePath = Avatars.storagePath();
   if (!fs.existsSync(storagePath)) {
     console.log("create storagePath because it doesn't exist: " + storagePath);
     fs.mkdirSync(storagePath, { recursive: true });
@@ -1282,4 +1331,13 @@ Migrations.add('migrate-attachment-drop-index-cardId', () => {
     Attachments.collection._dropIndex({'cardId': 1});
   } catch (error) {
   }
+});
+
+Migrations.add('migrate-attachment-migration-fix-source-import', () => {
+  // there was an error at first versions, so source was import, instead of import
+  Attachments.update(
+    {"meta.source":"import,"},
+    {$set:{"meta.source":"import"}},
+    noValidateMulti
+  );
 });
