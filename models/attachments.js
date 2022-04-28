@@ -37,6 +37,7 @@ Attachments = new FilesCollection({
     if (file.size <= 10000000 ) {
       return true;
     }
+    alert('attachment-too-big');
     return 'attachment-too-big';
   },
   onAfterUpload(fileObj) {
