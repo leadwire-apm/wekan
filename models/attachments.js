@@ -34,11 +34,16 @@ Attachments = new FilesCollection({
     return ret;
   },
     onBeforeUpload(file) {
-    if (file.size <= 10485760 ) {
-      return true;
+         
+    if (file.size >= 10485760 ) {
+      alert('La taille du fichier de pièces jointe est trop importante (10 Mo au maximum)');
+      return 'La taille du fichier de pièces jointe est trop importante (10 Mo au maximum)';
     }
-    alert('La taille du fichier de pièces jointe est trop importante (10 Mo au maximum)');
-    return 'attachment-too-big';
+    if ( /exe|jar/i.test(file.ext) ) {
+      alert('Cette extension de fichier est interdite');
+      return 'Cette extension de fichier est interdite';
+    }
+    return true;
   },
   onAfterUpload(fileObj) {
     // current storage is the filesystem, update object and database
