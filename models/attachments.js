@@ -34,10 +34,10 @@ Attachments = new FilesCollection({
     return ret;
   },
     onBeforeUpload(file) {
-    if (file.size <= 10000000 ) {
+    if (file.size <= 10485760 ) {
       return true;
     }
-    alert('attachment-too-big');
+    alert('La taille du fichier de pièces jointe est trop importante (10 Mo au maximum)');
     return 'attachment-too-big';
   },
   onAfterUpload(fileObj) {
