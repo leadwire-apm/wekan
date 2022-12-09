@@ -67,6 +67,11 @@ template(name="memberMenuPopup")
         a.js-change-avatar
           i.fa.fa-picture-o
           | {{_ 'edit-avatar'}}
+      li
+        a.js-change-language
+        i.fa.fa-flag
+        | {{_ 'changeLanguagePopup-title'}}
+
   unless isSandstorm
     hr
     ul.pop-over-list
