@@ -194,7 +194,7 @@ BlazeComponent.extendComponent({
   },
 
   setAvatar(avatarUrl) {
-    Meteor.user().setAvatarUrl(avatarUrl);
+    Meteor.user().setAvatarUrl(avatarUrl.replace('https://wekan-mce.iria.appli.impots','').replace('https://wekan-mce.appli.impots','').replace('https://wekan-mce.ira.appli.impots','').replace('https://pigp.iia.dgfip/wekan-mce','').replace('https://pigp.ia.dgfip/wekan-mce','').replace('https://portail.dgfip.finances.gouv.fr/wekan-mce',''));
   },
 
   setError(error) {

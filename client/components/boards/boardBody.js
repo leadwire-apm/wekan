@@ -347,7 +347,7 @@ BlazeComponent.extendComponent({
         start: '8:00',
         end: '18:00',
       },
-      locale: TAPi18n.getLanguage(),
+      locale: 'fr',
       events(start, end, timezone, callback) {
         const currentBoard = Boards.findOne(Session.get('currentBoard'));
         const events = [];

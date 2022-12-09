@@ -9,9 +9,11 @@ import Users from '/models/users';
 import Lists from '/models/lists';
 import CardComments from '/models/cardComments';
 import { ALLOWED_COLORS } from '/config/const';
+import 'moment/locale/fr';
 import { UserAvatar } from '../users/userAvatar';
 import { DialogWithBoardSwimlaneList } from '/client/lib/dialogWithBoardSwimlaneList';
 
+moment.locale('fr');
 const subManager = new SubsManager();
 const { calculateIndexData } = Utils;
 

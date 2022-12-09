@@ -2,6 +2,117 @@ import moment from 'moment/min/moment-with-locales';
 import { TAPi18n } from '/imports/i18n';
 import { DatePicker } from '/client/lib/datepicker';
 
+function setFr() {
+
+if (moment.locale() != 'fr') {
+
+    var monthsStrictRegex$1 = /^(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)/i,
+        monthsShortStrictRegex$1 = /(janv\.?|févr\.?|mars|avr\.?|mai|juin|juil\.?|août|sept\.?|oct\.?|nov\.?|déc\.?)/i,
+        monthsRegex$6 = /(janv\.?|févr\.?|mars|avr\.?|mai|juin|juil\.?|août|sept\.?|oct\.?|nov\.?|déc\.?|janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)/i,
+        monthsParse$6 = [
+            /^janv/i,
+            /^févr/i,
+            /^mars/i,
+            /^avr/i,
+            /^mai/i,
+            /^juin/i,
+            /^juil/i,
+            /^août/i,
+            /^sept/i,
+            /^oct/i,
+            /^nov/i,
+            /^déc/i,
+        ];
+
+    moment.defineLocale('fr', {
+        months: 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split(
+            '_'
+        ),
+        monthsShort: 'janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.'.split(
+            '_'
+        ),
+        monthsRegex: monthsRegex$6,
+        monthsShortRegex: monthsRegex$6,
+        monthsStrictRegex: monthsStrictRegex$1,
+        monthsShortStrictRegex: monthsShortStrictRegex$1,
+        monthsParse: monthsParse$6,
+        longMonthsParse: monthsParse$6,
+        shortMonthsParse: monthsParse$6,
+        weekdays: 'dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi'.split('_'),
+        weekdaysShort: 'dim._lun._mar._mer._jeu._ven._sam.'.split('_'),
+        weekdaysMin: 'di_lu_ma_me_je_ve_sa'.split('_'),
+        weekdaysParseExact: true,
+        longDateFormat: {
+            LT: 'HH:mm',
+            LTS: 'HH:mm:ss',
+            L: 'DD/MM/YYYY',
+            LL: 'D MMMM YYYY',
+            LLL: 'D MMMM YYYY HH:mm',
+            LLLL: 'dddd D MMMM YYYY HH:mm',
+        },
+        calendar: {
+            sameDay: '[Aujourd’hui à] LT',
+            nextDay: '[Demain à] LT',
+            nextWeek: 'dddd [à] LT',
+            lastDay: '[Hier à] LT',
+            lastWeek: 'dddd [dernier à] LT',
+            sameElse: 'L',
+        },
+        relativeTime: {
+            future: 'dans %s',
+            past: 'il y a %s',
+            s: 'quelques secondes',
+            ss: '%d secondes',
+            m: 'une minute',
+            mm: '%d minutes',
+            h: 'une heure',
+            hh: '%d heures',
+            d: 'un jour',
+            dd: '%d jours',
+            w: 'une semaine',
+            ww: '%d semaines',
+            M: 'un mois',
+            MM: '%d mois',
+            y: 'un an',
+            yy: '%d ans',
+        },
+        dayOfMonthOrdinalParse: /\d{1,2}(er|)/,
+        ordinal: function (number, period) {
+            switch (period) {
+                // TODO: Return 'e' when day of month > 1. Move this case inside
+                // block for masculine words below.
+                // See https://github.com/moment/moment/issues/3375
+                case 'D':
+                    return number + (number === 1 ? 'er' : '');
+
+                // Words with masculine grammatical gender: mois, trimestre, jour
+                default:
+                case 'M':
+                case 'Q':
+                case 'DDD':
+                case 'd':
+                    return number + (number === 1 ? 'er' : 'e');
+
+                // Words with feminine grammatical gender: semaine
+                case 'w':
+                case 'W':
+                    return number + (number === 1 ? 're' : 'e');
+            }
+        },
+        week: {
+            dow: 1, // Monday is the first day of the week.
+            doy: 4, // The week that contains Jan 4th is the first week of the year.
+        },
+    });
+	
+
+}
+
+
+}
+
+moment.locale('fr');
+
 Template.dateBadge.helpers({
   canModifyCard() {
     return (
@@ -162,8 +273,10 @@ class CardReceivedDate extends CardDate {
   }
 
   showTitle() {
+    setFr();
     return `${TAPi18n.__('card-received-on')} ${this.date
       .get()
+      .locale('fr')
       .format('LLLL')}`;
   }
 
@@ -199,7 +312,8 @@ class CardStartDate extends CardDate {
   }
 
   showTitle() {
-    return `${TAPi18n.__('card-start-on')} ${this.date.get().format('LLLL')}`;
+    setFr();
+    return `${TAPi18n.__('card-start-on')} ${this.date.get().locale('fr').format('LLLL')}`;
   }
 
   events() {
@@ -235,7 +349,8 @@ class CardDueDate extends CardDate {
   }
 
   showTitle() {
-    return `${TAPi18n.__('card-due-on')} ${this.date.get().format('LLLL')}`;
+    setFr();
+    return `${TAPi18n.__('card-due-on')} ${this.date.get().locale('fr').format('LLLL')}`;
   }
 
   events() {
@@ -266,7 +381,8 @@ class CardEndDate extends CardDate {
   }
 
   showTitle() {
-    return `${TAPi18n.__('card-end-on')} ${this.date.get().format('LLLL')}`;
+    setFr();
+    return `${TAPi18n.__('card-end-on')} ${this.date.get().locale('fr').format('LLLL')}`;
   }
 
   events() {
@@ -304,7 +420,8 @@ class CardCustomFieldDate extends CardDate {
   }
 
   showTitle() {
-    return `${this.date.get().format('LLLL')}`;
+    setFr();
+    return `${this.date.get().locale('fr').format('LLLL')}`;
   }
 
   classes() {
@@ -319,31 +436,36 @@ CardCustomFieldDate.register('cardCustomFieldDate');
 
 (class extends CardReceivedDate {
   showDate() {
-    return this.date.get().format('L');
+    setFr();
+    return this.date.get().locale('fr').format('l');
   }
 }.register('minicardReceivedDate'));
 
 (class extends CardStartDate {
   showDate() {
-    return this.date.get().format('L');
+    setFr();
+    return this.date.get().locale('fr').format('l');
   }
 }.register('minicardStartDate'));
 
 (class extends CardDueDate {
   showDate() {
-    return this.date.get().format('L');
+    setFr();
+    return this.date.get().locale('fr').format('l');
   }
 }.register('minicardDueDate'));
 
 (class extends CardEndDate {
   showDate() {
-    return this.date.get().format('L');
+    setFr();
+    return this.date.get().locale('fr').format('l');
   }
 }.register('minicardEndDate'));
 
 (class extends CardCustomFieldDate {
   showDate() {
-    return this.date.get().format('L');
+    setFr();
+    return this.date.get().locale('fr').format('l');
   }
 }.register('minicardCustomFieldDate'));
 
@@ -363,7 +485,8 @@ class VoteEndDate extends CardDate {
     return this.date.get().format('L LT');
   }
   showTitle() {
-    return `${TAPi18n.__('card-end-on')} ${this.date.get().format('LLLL')}`;
+    setFr();
+    return `${TAPi18n.__('card-end-on')} ${this.date.get().locale('fr').format('LLLL')}`;
   }
 
   events() {
@@ -390,7 +513,8 @@ class PokerEndDate extends CardDate {
     return this.date.get().format('l LT');
   }
   showTitle() {
-    return `${TAPi18n.__('card-end-on')} ${this.date.get().format('LLLL')}`;
+    setFr();
+    return `${TAPi18n.__('card-end-on')} ${this.date.get().locale('fr').format('LLLL')}`;
   }
 
   events() {

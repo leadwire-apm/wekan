@@ -1,5 +1,6 @@
 import moment from 'moment/min/moment-with-locales';
 import escapeForRegex from 'escape-string-regexp';
+import 'moment/locale/fr';
 import Users from '../../models/users';
 import Boards from '../../models/boards';
 import Lists from '../../models/lists';
@@ -52,6 +53,9 @@ import { QueryErrors, QueryParams, Query } from '/config/query-classes';
 import { CARD_TYPES } from '../../config/const';
 import Org from "../../models/org";
 import Team from "../../models/team";
+
+moment.locale('fr');
+const escapeForRegex = require('escape-string-regexp');
 
 Meteor.publish('card', cardId => {
   check(cardId, String);

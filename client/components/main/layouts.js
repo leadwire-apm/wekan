@@ -81,6 +81,11 @@ Template.userFormsLayout.onRendered(() => {
     AccountsTemplates.state.form.keys,
     validator,
   );
+
+  const i18nTag = navigator.language;
+  if (i18nTag) {
+    T9n.setLanguage('fr');
+  }
   EscapeActions.executeAll();
 });
 
@@ -104,12 +109,12 @@ Template.userFormsLayout.helpers({
 
   getLegalNoticeWithWritTraduction() {
     let spanLegalNoticeElt = $("#legalNoticeSpan");
-    if (spanLegalNoticeElt != null && spanLegalNoticeElt != undefined) {
-      spanLegalNoticeElt.html(TAPi18n.__('acceptance_of_our_legalNotice', {}));
+    if(spanLegalNoticeElt != null && spanLegalNoticeElt != undefined){
+      spanLegalNoticeElt.html(TAPi18n.__('acceptance_of_our_legalNotice', {}, 'fr'));
     }
     let atLinkLegalNoticeElt = $("#legalNoticeAtLink");
-    if (atLinkLegalNoticeElt != null && atLinkLegalNoticeElt != undefined) {
-      atLinkLegalNoticeElt.html(TAPi18n.__('legalNotice', {}));
+    if(atLinkLegalNoticeElt != null && atLinkLegalNoticeElt != undefined){
+      atLinkLegalNoticeElt.html(TAPi18n.__('legalNotice', {}, 'fr'));
     }
     return true;
   },
@@ -139,7 +144,7 @@ Template.userFormsLayout.helpers({
   },
 
   isCurrentLanguage() {
-    const curLang = TAPi18n.getLanguage();
+    const curLang = 'fr';
     return this.tag === curLang;
   },
 });
@@ -147,7 +152,7 @@ Template.userFormsLayout.helpers({
 Template.userFormsLayout.events({
   'change .js-userform-set-language'(event) {
     const tag = $(event.currentTarget).val();
-    TAPi18n.setLanguage(tag);
+    TAPi18n.setLanguage('fr');
     event.preventDefault();
   },
   'click #at-btn'(event, templateInstance) {

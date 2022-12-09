@@ -32,6 +32,7 @@ Template.createLabelPopup.helpers({
   // is not already used in the board (although it's not a problem if two
   // labels have the same color).
   defaultColor() {
+    labelColors = Boards.simpleSchema()._schema['labels.$.color'].allowedValues;
     const labels = Boards.findOne(Session.get('currentBoard')).labels;
     const usedColors = _.pluck(labels, 'color');
     const availableColors = _.difference(labelColors, usedColors);

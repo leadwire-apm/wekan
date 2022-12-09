@@ -2,6 +2,9 @@ import { TAPi18n } from '/imports/i18n';
 import moment from 'moment/min/moment-with-locales';
 
 // Helper function to replace HH with H for 24 hours format, because H allows also single-digit hours
+
+moment.locale('fr');
+
 function adjustedTimeFormat() {
   return moment
     .localeData()
@@ -35,7 +38,7 @@ export class DatePicker extends BlazeComponent {
       .datepicker({
         todayHighlight: true,
         todayBtn: 'linked',
-        language: TAPi18n.getLanguage(),
+        language: 'fr',
         weekStart: this.startDayOfWeek(),
         calendarWeeks: true,
       })
