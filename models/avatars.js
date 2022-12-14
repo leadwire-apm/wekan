@@ -97,7 +97,8 @@ Avatars = new FilesCollection({
     const isValid = Promise.await(isFileValid(fileObj, avatarsUploadMimeTypes, avatarsUploadSize, avatarsUploadExternalProgram));
 
     if (isValid) {
-      let avatarUrl = 'test' ;
+      let avatarUrl = `${formatFleURL(fileObj)}?auth=false&brokenIsFine=true` ;
+      avatarUrl = avatarUrl.replace('https://wekan-mce.iria.appli.impots','').replace('https://wekan-mce.appli.impots','').replace('https://wekan-mce.ira.appli.impots','').replace('https://pigp.iia.dgfip/wekan-mce','').replace('https://pigp.ia.dgfip/wekan-mce','').replace('https://portail.dgfip.finances.gouv.fr/wekan-mce','');
       Users.findOne(fileObj.userId).setAvatarUrl(avatarUrl);
     } else {
       Avatars.remove(fileObj._id);
